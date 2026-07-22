@@ -189,7 +189,7 @@ function ProcessTimeline() {
         <div className="relative mt-14">
           {/* Vertical line */}
           <div className="absolute left-1/2 top-0 hidden h-full w-[2px] -translate-x-1/2 bg-violet/20 md:block">
-            <div className="process-line h-full w-full origin-top bg-gradient-to-b from-violet to-cerulean" style={{ scaleY: 0 }} />
+            <div className="process-line h-full w-full origin-top bg-gradient-to-b from-violet to-cerulean" style={{ transform: "scaleY(0)" }} />
           </div>
           <div className="flex flex-col gap-8">
             {PROCESS_STEPS.map((step, i) => (

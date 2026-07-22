@@ -10,9 +10,6 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
-    onError: (error) => {
-      console.error('CRITICAL Router Error:', error);
-    },
   });
 
   return router;
