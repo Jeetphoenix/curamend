@@ -7,18 +7,18 @@ let serverModule;
 async function getServer() {
   if (!serverModule) {
     try {
-      console.log('--- Checking dist/server contents at runtime ---');
+      console.error('--- Checking dist/server contents at runtime ---');
       const distServerPath = path.resolve(process.cwd(), 'dist/server');
       if (fs.existsSync(distServerPath)) {
-        console.log('Files in dist/server:', fs.readdirSync(distServerPath));
+        console.error('Files in dist/server:', fs.readdirSync(distServerPath));
         const assetsPath = path.join(distServerPath, 'assets');
         if (fs.existsSync(assetsPath)) {
-          console.log('Files in dist/server/assets:', fs.readdirSync(assetsPath));
+          console.error('Files in dist/server/assets:', fs.readdirSync(assetsPath));
         } else {
-          console.log('dist/server/assets directory does not exist!');
+          console.error('dist/server/assets directory does not exist!');
         }
       } else {
-        console.log('dist/server directory does not exist!');
+        console.error('dist/server directory does not exist!');
       }
     } catch (e) {
       console.error('Error listing dist/server:', e);
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
     const cleanUrlPath = req.url.replace(/^\/api/, '') || '/';
     const url = `${proto}://${host}${cleanUrlPath}`;
 
-    console.log(`[Vercel SSR Handler] Incoming req.url: "${req.url}" -> Routed to: "${url}"`);
+    console.error(`[Vercel SSR Handler] Incoming req.url: "${req.url}" -> Routed to: "${url}"`);
 
     // Collect body for non-GET requests
     let body = undefined;
