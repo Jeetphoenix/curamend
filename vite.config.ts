@@ -13,6 +13,9 @@ export default defineConfig({
     server: { entry: "server" },
   },
   vite: {
+    ssr: {
+      noExternal: ["gsap"],
+    },
     server: {
       port: 8000,
       host: '0.0.0.0',
