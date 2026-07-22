@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { GraduationCap, Award, ClipboardCheck, Target, Eye, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import { BRAND } from "@/data/content";
 import { SectionHeader } from "@/components/ui-custom/SectionHeader";
 import { AnimatedPageBg } from "@/components/animations/AnimatedPageBg";

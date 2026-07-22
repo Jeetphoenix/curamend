@@ -8,7 +8,7 @@ import { lazy, Suspense } from "react";
 import { ButtonLink } from "@/components/ui-custom/Button";
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const HealingSanctuary = lazy(() => import("@/components/animations/HealingSanctuary"));
 

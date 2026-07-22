@@ -12,7 +12,7 @@ import { CinematicVideoBg } from "@/components/animations/CinematicVideoBg";
 import { AnimatedPageBg } from "@/components/animations/AnimatedPageBg";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 

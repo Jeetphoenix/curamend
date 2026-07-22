@@ -6,7 +6,7 @@ import { AnimatedCounter } from "@/components/ui-custom/AnimatedCounter";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Shield, Zap, Brain, Heart, Users, BookOpen, RefreshCcw, ExternalLink } from "lucide-react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
