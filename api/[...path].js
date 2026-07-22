@@ -1,10 +1,35 @@
 import { createServer } from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
 
 let serverModule;
 
 async function getServer() {
   if (!serverModule) {
-    serverModule = (await import('../dist/server/server.js')).default;
+    try {
+      console.log('--- Checking dist/server contents at runtime ---');
+      const distServerPath = path.resolve(process.cwd(), 'dist/server');
+      if (fs.existsSync(distServerPath)) {
+        console.log('Files in dist/server:', fs.readdirSync(distServerPath));
+        const assetsPath = path.join(distServerPath, 'assets');
+        if (fs.existsSync(assetsPath)) {
+          console.log('Files in dist/server/assets:', fs.readdirSync(assetsPath));
+        } else {
+          console.log('dist/server/assets directory does not exist!');
+        }
+      } else {
+        console.log('dist/server directory does not exist!');
+      }
+    } catch (e) {
+      console.error('Error listing dist/server:', e);
+    }
+
+    try {
+      serverModule = (await import('../dist/server/server.js')).default;
+    } catch (importError) {
+      console.error('CRITICAL: Failed to import SSR server module:', importError);
+      throw importError;
+    }
   }
   return serverModule;
 }
