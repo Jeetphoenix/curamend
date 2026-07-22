@@ -2,6 +2,11 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist/client",
   "installCommand": "npm install",
+  "functions": {
+    "api/[...path].js": {
+      "includeFiles": "dist/server/**"
+    }
+  },
   "rewrites": [
     {
       "source": "/assets/(.*)",
