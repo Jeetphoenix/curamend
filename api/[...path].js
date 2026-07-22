@@ -15,7 +15,13 @@ export default async function handler(req, res) {
 
     const proto = req.headers['x-forwarded-proto'] || 'http';
     const host = req.headers['x-forwarded-host'] || req.headers.host;
-    const url = `${proto}://${host}${req.url}`;
+    
+    // Strip the /api prefix from the URL because Vercel rewrites all requests
+    // to /api/[...path], causing the path to start with /api.
+    const cleanUrlPath = req.url.replace(/^\/api/, '') || '/';
+    const url = `${proto}://${host}${cleanUrlPath}`;
+
+    console.log(`[Vercel SSR Handler] Incoming req.url: "${req.url}" -> Routed to: "${url}"`);
 
     // Collect body for non-GET requests
     let body = undefined;
